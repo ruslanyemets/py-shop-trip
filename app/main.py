@@ -63,15 +63,16 @@ def shop_trip() -> None:
 
         if customer.money >= target_spending_money:
             remaining_money = customer.money - target_spending_money
+            purchase_receipt = target_shop.print_purchase_receipt(
+                customer.name,
+                customer.products_to_buy,
+                target_shop.product_prices
+            )
             print(
                 f"{customer.name} has {customer.money} dollars\n"
                 f"{cost_of_trips}"
                 f"{customer.name} rides to {target_shop.name}\n\n"
-                f"{target_shop.print_purchase_receipt(
-                    customer.name,
-                    customer.products_to_buy,
-                    target_shop.product_prices
-                )}\n"
+                f"{purchase_receipt}\n"
                 f"{customer.name} rides home\n"
                 f"{customer.name} now has {remaining_money} dollars\n"
             )
