@@ -68,6 +68,7 @@ def shop_trip() -> None:
                 customer.products_to_buy,
                 target_shop.product_prices
             )
+            customer.location = target_shop.location
             print(
                 f"{customer.name} has {customer.money} dollars\n"
                 f"{cost_of_trips}"
